@@ -12,7 +12,7 @@ const Layout = () => {
 	
 	
   return (
-		<Router>
+		<Router basename={process.env.PUBLIC_URL}>
 			<Background />
 			<Loading/>
 			<Header/>
