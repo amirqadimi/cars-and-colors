@@ -1,5 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv').config( {
+  path: path.join(__dirname, '../.env')
+} );
 
 const files = {
 	test: /\.(svg|png|jpe?g|gif|webp)$/i,
@@ -47,7 +51,7 @@ const config = {
 	output: {
 		filename: 'main_[hash].js',
 		path: path.resolve(__dirname, '../build'),
-		publicPath: 'cars-and-colors/'
+		publicPath: process.env.PUBLIC_PATH
 	},
 	target: 'web',
 	module: {
@@ -67,7 +71,10 @@ const config = {
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
 			base: '/'
-		})
+		}),
+		new webpack.DefinePlugin({
+      "process.env": dotenv.parsed
+    }),
 	]
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-	BrowserRouter as Router,
+	HashRouter as Router,
 } from "react-router-dom";
 import Background from './background';
 import Footer from './footer';
@@ -12,7 +12,7 @@ const Layout = () => {
 	
 	
   return (
-		<Router basename={process.env.PUBLIC_URL}>
+		<Router>
 			<Background />
 			<Loading/>
 			<Header/>

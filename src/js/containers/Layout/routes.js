@@ -31,7 +31,7 @@ const Routes = () => {
   return (
     <TransitionGroup>
       <CSSTransition
-        key={location.key}
+        key={location.pathname}
         timeout={2000}
         classNames={classNames}>
         <Switch location={location}>
