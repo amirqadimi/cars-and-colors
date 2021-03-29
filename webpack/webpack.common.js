@@ -47,7 +47,7 @@ const config = {
 	output: {
 		filename: 'main_[hash].js',
 		path: path.resolve(__dirname, '../build'),
-		publicPath: '/'
+		publicPath: 'cars-and-colors/'
 	},
 	target: 'web',
 	module: {

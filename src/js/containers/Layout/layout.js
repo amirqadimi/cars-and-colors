@@ -12,7 +12,7 @@ const Layout = () => {
 	
 	
   return (
-		<Router>
+		<Router basename='cars-and-colors'>
 			<Background />
 			<Loading/>
 			<Header/>
