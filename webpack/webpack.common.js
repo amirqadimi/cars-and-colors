@@ -47,7 +47,7 @@ const config = {
 	output: {
 		filename: 'main_[hash].js',
 		path: path.resolve(__dirname, '../build'),
-		publicPath: 'cars-and-colors/'
+		publicPath: '/'
 	},
 	target: 'web',
 	module: {
@@ -66,7 +66,7 @@ const config = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
-			base: 'cars-and-colors/'
+			base: '/'
 		})
 	]
 };
