@@ -30,7 +30,7 @@ const css = {
 	include: path.resolve(__dirname, '../src/styles'),
 	use: [
 		MiniCssExtractPlugin.loader,
-		{ loader: 'css-loader', options: { sourceMap: true } },
+		{ loader: 'css-loader', options: { url: false, sourceMap: true } },
 		postcss
 	]
 };
@@ -47,12 +47,13 @@ const scssConfig = (isModule = false) => ({
 		{ 
 			loader: 'css-loader', 
 			options: { 
+				url: false,
 				sourceMap: true,
 				modules: isModule ? modulesOptions : false
 			} 
 		},
 		postcss,
-		{ loader: 'sass-loader', options: { sourceMap: true } },
+		{ loader: 'sass-loader', options: { url: false, sourceMap: true } },
 	]
 });
 
