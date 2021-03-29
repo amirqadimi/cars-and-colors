@@ -66,7 +66,7 @@ const config = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
-			base: '/'
+			base: process.env.PUBLIC_URL
 		})
 	]
 };

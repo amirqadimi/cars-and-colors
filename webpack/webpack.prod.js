@@ -67,7 +67,9 @@ const config = {
 		rules: [js, css, scss, scssModules]
 	},
 	plugins: [
-		new MiniCssExtractPlugin()
+		new MiniCssExtractPlugin({
+			filename: 'main_[hash].css',
+		})
 	]
 };
 
