@@ -47,13 +47,12 @@ const scssConfig = (isModule = false) => ({
 		{ 
 			loader: 'css-loader', 
 			options: { 
-				url: false,
 				sourceMap: true,
 				modules: isModule ? modulesOptions : false
 			} 
 		},
 		postcss,
-		{ loader: 'sass-loader', options: { url: false, sourceMap: true } },
+		{ loader: 'sass-loader', options: { sourceMap: true } },
 	]
 });
 

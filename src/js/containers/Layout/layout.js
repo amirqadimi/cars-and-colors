@@ -12,7 +12,7 @@ const Layout = () => {
 	
 	
   return (
-		<Router basename='cars-and-colors'>
+		<Router basename={process.env.PUBLIC_URL}>
 			<Background />
 			<Loading/>
 			<Header/>
