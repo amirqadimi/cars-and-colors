@@ -1,0 +1,59 @@
+:root {
+	// Colors - START
+	--color-white: #FFFFFF;
+
+	--color-red-b:#BB2534;
+
+	--color-green-3:#39B54A;
+
+	--color-gray-f2: #F2F2F2;
+	--color-gray-8: #808080;
+	--color-gray-c: #cccccc;
+	--color-gray-5: #535353;
+	--color-gray-14: #141414;
+	--color-gray-1a: #1A1A1A;
+
+	--color-blue-2: #202934;
+	// Colors - END
+
+	// Font - START
+	--font-size-xxlg: 2.5rem;
+	--font-size-xlg: 2.3rem;
+	--font-size-lg: 2.1rem;
+	--font-size-md: 1.5rem;
+	--font-size-sm: 1.4rem;
+	--font-size-xs: 1.2rem;
+
+	--font-height-lg: 1.7;
+	--font-height-md: 1.5;
+	--font-height-sm: 1.2;
+	--font-height-xs: 1;
+
+	--font-weight-normal: normal;
+	--font-weight-medium: 500;
+	--font-weight-bold: bold;
+
+	--font-family-main: 'avrile-sans', sans-serif;
+	// Font - END
+
+	// Borders - START
+	--border-thin-light: 1px solid var(--color-white);
+	--border-thin-gray-f2: 1px solid var(--color-gray-f2);
+	// Borders - END
+
+	// Z-indexes - START
+	--z-index-content: 2;
+	--z-index-header: 10;
+	--z-index-loading: 15;
+	// z-indexes - END
+
+	// Transitions - START
+	--transition-button: all .1s linear;
+	--transition-cubic-bezier-1: cubic-bezier(0.22, 1, 0.36, 1);
+	--transition-cubic-bezier-2: cubic-bezier(0.61, 1, 0.88, 1);
+	// Transitions - END
+
+	// Box shadows - START
+	--shadow-black-5: .5rem .5rem .5rem rgba(0,0,0, 0.3);
+	// Box shadows - END
+}

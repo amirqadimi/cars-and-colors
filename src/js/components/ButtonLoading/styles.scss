@@ -1,0 +1,44 @@
+@import '~styles/library/library';
+
+.btn {
+	position: relative;
+}
+.content {
+	transition: var(--transition-button);
+
+	.isLoading &{
+		opacity: 0;
+	}
+}
+
+.loading {
+	@include centered(true,true);
+	border-style: solid;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+	opacity: 0;
+	transition: var(--transition-button);
+
+	.isLoading & {
+		opacity: 1;
+	}
+}
+.lg {
+	border-width: 0.5rem;
+	width: 4rem;
+	height: 4rem;
+}
+.md {
+	border-width: 0.5rem;
+	width: 3rem;
+	height: 3rem;
+}
+.primary {
+	border-color: var(--color-gray-8);
+	border-top-color: var(--color-white);
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}

@@ -1,0 +1,78 @@
+@import '~styles/library/library';
+
+.loading {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 0.4rem;
+	overflow: hidden;
+	transition: opacity .3s linear;
+	z-index: var(--z-index-loading);
+	
+	span {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		height: 100%;
+		background-color: var(--color-red-b);
+		transform: translateX(-100%);
+		transition: transform 2s var(--transition-cubic-bezier-1);
+	}
+}
+.hide {
+	opacity: 0;
+}
+.fullLoading {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: var(--z-index-loading);
+	background-color: var(--color-gray-1a);
+
+	&.isDown {
+		transform: translateY(100%);
+		transition: transform 0.34s var(--transition-cubic-bezier-2);
+		transition-delay: .18s;
+	}
+	&.isUp {
+		transform: translateY(0);
+		transition: transform 0.42s var(--transition-cubic-bezier-2);
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 35rem;
+		transform: scale(1, 0);
+		background: var(--color-red-b);
+		background: linear-gradient(0deg, rgba(#BB2534,0) 0%, rgba(#BB2534,1) 7%, rgba(#BB2534,1) 93%, rgba(#BB2534,0) 100%);
+		transform-origin: top center;
+		
+		@at-root .fullLoading.isDown::after {
+			animation: red_line_down 0.42s var(--transition-cubic-bezier-2);
+			animation-delay: 0.1s;
+		}
+		@at-root .fullLoading.isUp::after {
+			animation: red_line_up 0.42s var(--transition-cubic-bezier-2);
+		}
+	}
+}
+@keyframes red_line_down {
+	0%   { transform: scale(1, 0); }
+	26%   { transform: scale(1, 1); }
+	38%   { transform: scale(1, 1); }
+	100% { transform: scale(1, .1); }
+}
+@keyframes red_line_up {
+	0%   { transform: scale(1, .1); }
+	26%   { transform: scale(1, 1); }
+	38%   { transform: scale(1, 1); }
+	100% { transform: scale(1, 0); }
+}

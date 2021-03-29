@@ -1,0 +1,9 @@
+.link {
+	&:not(:last-child) {
+		margin-right: 2rem;
+	}
+	svg {
+		width: 1.8rem;
+		height: 1.8rem;
+	}
+}

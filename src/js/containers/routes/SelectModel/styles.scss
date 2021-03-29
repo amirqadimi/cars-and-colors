@@ -1,0 +1,34 @@
+@import '~styles/library/library';
+
+.heading {
+  padding: 0 5rem;
+}
+.title {
+  width: 100%;
+  max-width: 59rem;
+  height: auto;
+  display: block;
+  margin: 0 auto 13rem;
+	fill: red;
+	
+	:global .page-enter :local & {
+		opacity: 0;
+		transform: scale(.9, .6);
+		transform-origin: 50% 100%;
+	}
+	:global .page-ative-enter :local & {
+		opacity: 1;
+		transition: opacity 1s linear, transform 1.5s var(--transition-cubic-bezier-1);
+		transform:  none;
+		transition-delay: 700ms;
+	}
+	:global .page-active-exit :local & {
+		opacity: 0;
+		transform: translateY(-8rem);
+		transition: opacity .5s linear, transform 1s var(--transition-cubic-bezier-1);
+	}
+}
+.middle {
+	max-width: 75rem;
+	margin: 0 auto 17rem;
+}

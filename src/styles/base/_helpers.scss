@@ -1,0 +1,28 @@
+.flip {
+  transform-origin: center;
+
+  &-v {
+    transform: scale(-1,1);
+  }
+  &-h {
+    transform: scale(1,-1);
+  }
+  &-vh {
+    transform: scale(-1,-1);
+  }
+}
+.d-flex {
+	display: flex;
+}
+.flex-end {
+	@extend .d-flex;
+	justify-content: flex-end;
+}
+.flex-start {
+	@extend .d-flex;
+	justify-content: flex-end;
+}
+.flex-center {
+	@extend .d-flex;
+	justify-content: center;
+}

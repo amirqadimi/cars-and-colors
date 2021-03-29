@@ -1,0 +1,20 @@
+@import '~styles/library/library';
+
+.canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	canvas {
+		transform: scale(1.1);
+		transform-origin: center center;
+		transition: transform 2s var(--transition-cubic-bezier-1);
+
+		@at-root .normal canvas {
+			transform: scale(1);
+		}
+	}
+}

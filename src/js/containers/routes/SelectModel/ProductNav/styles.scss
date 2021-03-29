@@ -1,0 +1,50 @@
+@import '~styles/library/library';
+
+.nav {
+  display: flex;
+  align-items: center;
+	justify-content: space-between;
+	
+	:global .page-enter :local & >*{
+		opacity: 0;
+		
+		&:first-child {
+			transform: translateX(-5rem);
+		}
+		&:nth-child(2) {
+			transform: translateY(-5rem);
+		}
+		&:last-child {
+			transform: translateX(5rem);
+		}
+	}
+	:global .page-ative-enter :local & >* {
+		opacity: 1;
+		transition: opacity 1s linear, transform 1.5s var(--transition-cubic-bezier-1);
+		transition-delay: .5s;
+
+		&:first-child, &:nth-child(2), &:last-child {
+			transform: none;
+		}
+	}
+	:global .page-active-exit :local & >* {
+		opacity: 0;
+    transition: opacity .2s linear;
+	}
+}
+.btn {
+  height: 6.6rem;
+  border: var(--border-thin-light);
+  display: flex;
+  align-items: center;
+	justify-content: center;
+}
+.change {
+  @extend .btn;
+	width: 6.6rem;
+
+  svg {
+    width: 1.7rem;
+		height: 1.7rem;
+  }
+}

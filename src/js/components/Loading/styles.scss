@@ -1,0 +1,26 @@
+@import '~styles/library/library';
+
+.loading {
+	border-style: solid;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+.lg {
+	border-width: 0.5rem;
+	width: 4rem;
+	height: 4rem;
+}
+.md {
+	border-width: 0.5rem;
+	width: 3rem;
+	height: 3rem;
+}
+.primary {
+	border-color: var(--color-gray-8);
+	border-top-color: var(--color-white);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

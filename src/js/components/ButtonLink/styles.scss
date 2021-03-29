@@ -1,0 +1,20 @@
+@import '~styles/library/library';
+
+.link {
+	cursor: pointer;
+	min-width: 23.4rem;
+	height: 6.1rem;
+	line-height: 6.1rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 1.5rem;
+	color: var(--color-white);
+	box-shadow: var(--shadow-black-5);
+	transition: var(--transition-button);
+	font-size: var(--font-size-xxlg);
+	font-weight: var(--font-weight-medium);
+}
+.success {
+	background-color: var(--color-green-3);
+}

@@ -1,0 +1,36 @@
+@import '~styles/library/library';
+
+.wrap {
+	width: 100%;
+	max-width: 36.8rem;
+
+	:global .page-enter :local & {
+		h2, p {
+			opacity: 0;
+			transform: translateX(8rem);
+		}
+	}
+	:global .page-ative-enter :local & {
+		h2, p {
+			opacity: 1;
+			transition: opacity 1s linear, transform 1.5s var(--transition-cubic-bezier-1);
+			transform:  none;
+			transition-delay: .5s;
+		}
+		p {
+			transition-delay: 600ms;
+		}
+	}
+	:global .page-active-exit :local & {
+		h2, p {
+			opacity: 0;
+			transform: translateX(8rem);
+			transition: opacity .5s linear, transform 1s var(--transition-cubic-bezier-1);
+		}
+	}
+}
+.title {
+	@extend %h2;
+	margin-bottom: 2rem;
+	line-height: var(--font-height-md);
+}

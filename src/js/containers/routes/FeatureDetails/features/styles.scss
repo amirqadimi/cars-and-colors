@@ -1,0 +1,106 @@
+@import '~styles/library/library';
+
+.box {
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		border: var(--border-thin-gray-f2);
+		background-color: var(--color-gray-1a);
+		opacity: .1;
+	}
+}
+.colors {
+	@include centered(true, false);
+	top: 18.5vh;
+	
+	.inner {
+		@extend .box;
+		padding: 2rem;
+		min-width: 44rem;
+
+		:global .page-enter :local & {
+			opacity: 0;
+			transform: translateX(-8rem);
+		}
+		:global .page-ative-enter :local & {
+			opacity: 1;
+			transition: opacity 1s linear, transform 1.5s var(--transition-cubic-bezier-1);
+			transform:  none;
+			transition-delay: .5s;
+		}
+		:global .page-active-exit :local & {
+			opacity: 0;
+			transform: translateX(8rem);
+			transition: opacity .3s linear, transform 1.5s var(--transition-cubic-bezier-1);
+		}
+	}
+
+	h3 {
+		font-size: var(--font-size-xlg);
+		margin-bottom: 3rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	ul {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		line-height: 0;
+		z-index: 1;
+		
+		li:not(:last-child) {
+				margin-right: 3rem;
+		}
+		button{
+			width: 4.7rem;
+			height: 4.7rem;
+		}
+	}
+}
+.loading {
+	margin: 0 auto;
+}
+.wrap {
+	position: relative;
+}
+.square {
+	position: absolute;
+	top: -0.8rem;
+	left: 0;
+	width: 6.3rem;
+	height: 6.3rem;
+	background-color: var(--color-red-b);
+	opacity: 0;
+	transition: transform .4s var(--transition-cubic-bezier-1), opacity .3s linear;
+	
+	&.show {
+		opacity: 1;
+	}
+}
+.footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 15vh;
+
+	:global .page-enter :local & {
+		opacity: 0;
+		transform: translateY(8rem);
+	}
+	:global .page-ative-enter :local & {
+		opacity: 1;
+		transition: opacity 1s linear, transform 1.5s var(--transition-cubic-bezier-1);
+		transform:  none;
+		transition-delay: .5s;
+	}
+	:global .page-active-exit :local & {
+		opacity: 0;
+		transform: translateY(8rem);
+		transition: opacity .3s linear, transform 1.5s var(--transition-cubic-bezier-1);
+	}
+}

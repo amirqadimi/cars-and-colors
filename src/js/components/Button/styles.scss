@@ -1,0 +1,31 @@
+@import '~styles/library/library';
+
+.button {
+	position: relative;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+	font-weight: var(--font-weight-medium);
+	text-transform: uppercase;
+	transition: var(--transition-button);
+
+	&.lg {
+		border-width: 1px;
+		height: 6.6rem;
+		min-width: 17.5rem;
+		font-size: var(--font-size-xlg);
+	}
+	&.primary {
+		border-color: var(--color-white);
+		color: var(--color-white);
+	}
+	&.isLoading {
+		border-color: var(--color-gray-5);
+	}
+	&:not(.isLoading):hover {
+		cursor: pointer;
+		border-color: var(--color-red-b);
+		background-color: var(--color-red-b);
+	}
+}

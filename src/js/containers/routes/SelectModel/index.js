@@ -1,0 +1,1 @@
+export { MODELS, default } from './select-model';

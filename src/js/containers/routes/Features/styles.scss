@@ -1,0 +1,115 @@
+@import '~styles/library/library';
+
+.box {
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		border: var(--border-thin-gray-f2);
+		background-color: var(--color-gray-1a);
+		opacity: .1;
+	}
+}
+.select {
+	@include centered(true, false);
+	top: 18.5vh;
+
+	ul {
+		@extend .box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1.5rem;
+
+		:global .page-enter :local & {
+			opacity: 0;
+			transform: translateY(-8rem);
+		}
+		:global .page-ative-enter :local & {
+			opacity: 1;
+			transition: opacity 1s linear, transform 1.5s var(--transition-cubic-bezier-1);
+			transform:  none;
+			transition-delay: .5s;
+		}
+		:global .page-active-exit :local & {
+			opacity: 0;
+			transform: translateX(3rem);
+			transition: opacity .3s linear, transform .8s var(--transition-cubic-bezier-1);
+		}
+
+		li {
+			position: relative;
+			z-index: 1;
+
+			:global .page-enter :local & {
+				opacity: 0;
+				transform: translateY(-3rem);
+			}
+			:global .page-ative-enter :local & {
+				opacity: 1;
+				transition: opacity 1s linear, transform 1.5s var(--transition-cubic-bezier-1);
+				transform:  none;
+
+				@for $i from 1 through 10 {
+					&:nth-child(#{$i}) {
+						transition-delay: #{(500+($i*100))}ms;
+					}
+				}
+			}
+		}
+	}
+}
+.link {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	height: 4.6rem;
+	padding: 0 2.4rem;
+	color: var(--color-white);
+	font-size: var(--font-size-xlg);
+	font-weight: var(--font-weight-medium);
+	transition: var(--transition-button);
+	text-transform: uppercase;
+	user-select: none;
+
+	li.active &, &:hover {
+		background-color: var(--color-red-b);
+	}
+	li.disabled &, li.disabled &:hover, &.isLoading, &.isLoading:hover {
+		cursor: auto;
+		background-color: transparent;
+		color: var(--color-gray-5);
+	}
+}
+.text {
+	@include centered(true, false);
+	position: fixed;
+	bottom: 14vh;
+	font-size: var(--font-size-xlg);
+	text-transform: uppercase;
+	font-weight: var(--font-weight-medium);
+
+	span {
+		display: inline-block;
+
+		:global .page-enter :local & {
+			opacity: 0;
+			transform: rotateY(90deg) rotateZ(-8deg);
+		}
+		:global .page-ative-enter :local & {
+			opacity: 1;
+			transition: opacity 1.5s linear, transform 2s var(--transition-cubic-bezier-1);
+			transform:  none;
+			transition-delay: .8s;
+		}
+		:global .page-active-exit :local & {
+			opacity: 0;
+			transform: translateX(3rem);
+			transition: opacity .3s linear, transform .8s var(--transition-cubic-bezier-1);
+		}
+	}
+}
