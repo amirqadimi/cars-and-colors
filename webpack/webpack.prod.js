@@ -1,7 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const common_config = require('./webpack.common.js');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const js = {
 	test: /.jsx?$/,
@@ -29,7 +29,7 @@ const css = {
 	test: /\.css$/i,
 	include: path.resolve(__dirname, '../src/styles'),
 	use: [
-		'style-loader',
+		MiniCssExtractPlugin.loader,
 		{ loader: 'css-loader', options: { sourceMap: true } },
 		postcss
 	]
@@ -39,11 +39,11 @@ const modulesOptions = {
 	localIdentName: '[local]--[hash:base64:5]',
 };
 
-const cssConfig = (isModule = false) => ({
+const scssConfig = (isModule = false) => ({
 	test: /\.scss$/i,
 	include: path.resolve(__dirname, isModule ? '../src/js' : '../src/styles'),
 	use: [
-		'style-loader',
+		MiniCssExtractPlugin.loader,
 		{ 
 			loader: 'css-loader', 
 			options: { 
@@ -56,16 +56,19 @@ const cssConfig = (isModule = false) => ({
 	]
 });
 
-const scss = cssConfig();
+const scss = scssConfig();
 
-const scssModules = cssConfig(true);
+const scssModules = scssConfig(true);
 
 const config = {
 	mode: 'production',
 	devtool: false,
 	module: {
 		rules: [js, css, scss, scssModules]
-	}
+	},
+	plugins: [
+		new MiniCssExtractPlugin()
+	]
 };
 
 module.exports = merge(common_config, config);
