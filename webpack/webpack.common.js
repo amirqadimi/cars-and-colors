@@ -46,7 +46,7 @@ const config = {
 	entry: './src/js/index.js',
 	output: {
 		filename: 'main_[hash].js',
-		path: path.resolve(__dirname, '../dist'),
+		path: path.resolve(__dirname, '../build'),
 		publicPath: '/'
 	},
 	target: 'web',

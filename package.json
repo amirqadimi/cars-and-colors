@@ -7,7 +7,7 @@
   "private": true,
   "homepage": "http://amirqadimi.github.io/cars-and-colors",
   "scripts": {
-    "clean": "rimraf dist/",
+    "clean": "rimraf build/",
     "dev": "webpack-dev-server --config ./webpack/webpack.dev.js ",
     "test": "./node_modules/.bin/eslint --fix \"./src/**/*.?(js|jsx)\" ",
     "build": "npm run clean && webpack --config ./webpack/webpack.prod.js --progress",
