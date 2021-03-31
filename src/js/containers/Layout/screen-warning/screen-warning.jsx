@@ -13,6 +13,7 @@ const ScreenWarning = () => {
 	};
 
 	React.useEffect( ()=> {
+		checkSize();
 		window.addEventListener('resize', checkSize);
 
 		return () => {
@@ -22,6 +23,12 @@ const ScreenWarning = () => {
 
 	return (
 		<React.Fragment>
+			<div className={cn(styles.wrap, styles.portrait)}>
+				<div className={styles.content}>
+					<div className={styles.phone}/>
+					<p>Please rotate your device!</p>
+				</div>
+			</div>
 			{is_mobile && !is_comfirmed && (
 				<div className={styles.wrap}>
 					<div className={styles.content}>
@@ -30,12 +37,6 @@ const ScreenWarning = () => {
 					</div>
 				</div>
 			)}
-			<div className={cn(styles.wrap, styles.portrait)}>
-				<div className={styles.content}>
-					<div className={styles.phone}/>
-					<p>Please rotate your device!</p>
-				</div>
-			</div>
 		</React.Fragment>
 	);
 };
