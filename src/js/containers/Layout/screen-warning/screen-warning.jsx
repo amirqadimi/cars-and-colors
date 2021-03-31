@@ -13,6 +13,7 @@ const ScreenWarning = () => {
 	};
 
 	React.useEffect( ()=> {
+		checkSize();
 		window.addEventListener('resize', checkSize);
 
 		return () => {
@@ -22,20 +23,20 @@ const ScreenWarning = () => {
 
 	return (
 		<React.Fragment>
-			{is_mobile && !is_comfirmed && (
-				<div className={styles.wrap}>
-					<div className={styles.content}>
-						<p>This website isn't designed for a mobile screen size, please visit on desktop.</p>
-						<Button onClick={()=> setIsComfirmed(true)}>Continue anyway</Button>
-					</div>
-				</div>
-			)}
 			<div className={cn(styles.wrap, styles.portrait)}>
 				<div className={styles.content}>
 					<div className={styles.phone}/>
 					<p>Please rotate your device!</p>
 				</div>
 			</div>
+			{is_mobile && !is_comfirmed && (
+				<div className={styles.wrap}>
+					<div className={styles.content}>
+						<p>This demo website isn't designed for a mobile screen size, please visit on desktop.</p>
+						<Button onClick={()=> setIsComfirmed(true)}>Continue anyway</Button>
+					</div>
+				</div>
+			)}
 		</React.Fragment>
 	);
 };
