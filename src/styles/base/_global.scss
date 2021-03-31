@@ -8,6 +8,9 @@ html {
 	@include mq_max($xlg) {
 		font-size: 7px;
 	}
+	@include mq_max($lg) {
+		font-size: 6px;
+	}
 }
 body {
 	font-family: var(--font-family-main);

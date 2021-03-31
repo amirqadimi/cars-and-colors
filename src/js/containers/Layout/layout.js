@@ -7,10 +7,9 @@ import Footer from './footer';
 import Header from './header';
 import Loading from './loading';
 import Routes from './routes';
+import ScreenWarning from './screen-warning';
 
 const Layout = () => {
-	
-	
   return (
 		<Router>
 			<Background />
@@ -18,6 +17,7 @@ const Layout = () => {
 			<Header/>
 			<Routes />
 			<Footer />
+			<ScreenWarning />
 		</Router>
   );
 };

@@ -1,0 +1,54 @@
+@import '~styles/library/library';
+
+.wrap {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: var(--z-index-modal);
+	background-color: var(--color-gray-1a);
+}
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.2rem;
+
+	p {
+		margin-bottom: 2rem;
+		max-width: 40rem;
+		text-align: center;
+	}
+}
+.portrait {
+	display: none;
+
+	@media (orientation: portrait) {
+		display: flex;
+	}
+}
+.phone {
+	height: 14rem;
+  width: 7rem;
+  border: .5rem solid var(--color-white);
+  border-radius: 1.2rem;
+	margin-bottom: 1.5rem;
+  animation: rotate 2s ease-in-out infinite alternate;
+}
+
+@keyframes rotate {
+  0% {
+		transform: rotate(0deg)
+	}
+	40% {
+		transform: rotate(90deg)
+	}
+	100% {
+		transform: rotate(90deg)
+	}
+}
