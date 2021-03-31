@@ -5,7 +5,7 @@ import { SEQUENCE } from 'js/containers/Layout/background/constance';
 import { connect } from 'js/store/connect';
 import styles from './styles.scss';
 
-const Loading = ({ current_sequence, loading_status, is_full_loading_up}) => {
+const Loading = ({ current_sequence, current_loading, loading_status, is_full_loading_up}) => {
 	const [is_first_load, setIsFirstLoad] = React.useState(true);
 
 	React.useEffect(() => {
@@ -13,7 +13,7 @@ const Loading = ({ current_sequence, loading_status, is_full_loading_up}) => {
 			setIsFirstLoad(false);
 		}
 	}, [is_full_loading_up]);
-	
+	const loading = current_loading ? current_loading : loading_status[current_sequence];
 	return (
 		<React.Fragment>
 			<div className={cn(styles.fullLoading, {
@@ -21,9 +21,9 @@ const Loading = ({ current_sequence, loading_status, is_full_loading_up}) => {
 				[styles.isDown]: !is_full_loading_up
 			})}/>
 			<div className={cn(styles.loading, {
-				[styles.hide]: !loading_status[current_sequence] || loading_status[current_sequence] >= 100
+				[styles.hide]: !loading || loading >= 100
 			})}>
-				<span style={{transform: `translateX(${loading_status[current_sequence] - 100}%)`}}/>
+				<span style={{transform: `translateX(${loading - 100}%)`}}/>
 			</div>
 		</React.Fragment>
 	);
@@ -31,12 +31,14 @@ const Loading = ({ current_sequence, loading_status, is_full_loading_up}) => {
 
 Loading.propTypes = {
 	current_sequence: PropTypes.oneOf(Object.keys(SEQUENCE)),
+	current_loading: PropTypes.number,
 	loading_status: PropTypes.object,
 	is_full_loading_up: PropTypes.bool,
 };
 
-export default connect( ({current_sequence, is_full_loading_up, loading_status}) => ({
+export default connect( ({current_sequence, current_loading, is_full_loading_up, loading_status}) => ({
 	current_sequence,
+	current_loading,
 	loading_status,
 	is_full_loading_up,
 }))(Loading);

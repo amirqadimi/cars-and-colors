@@ -11,7 +11,7 @@ const ButtonLoading = ({
 	sequence, 
 	url, 
 	loading_status, 
-	setCurrentSequnce, 
+	setCurrentLoading, 
 	className, 
 	component, 
 	color, 
@@ -43,6 +43,9 @@ const ButtonLoading = ({
 	React.useEffect( ()=> {
 		const status = loading_status[sequence];
 		
+		if (status && is_loading) {
+			setCurrentLoading(loading_status[sequence]);
+		}
 		if (status >= 100 && is_loading){
 			runAction();
 		}
@@ -70,7 +73,7 @@ ButtonLoading.propTypes = {
 	url: PropTypes.string,
 	callBack: PropTypes.func,
 	loading_status: PropTypes.object,
-	setCurrentSequnce: PropTypes.func,
+	setCurrentLoading: PropTypes.func,
 	sequence: PropTypes.oneOf(Object.keys(SEQUENCE)).isRequired,
 };
 
@@ -79,7 +82,7 @@ ButtonLoading.defaultProps = {
 	size: BUTTON_SIZE.LG,
 };
 
-export default connect( ({loading_status, setCurrentSequnce}) => ({
+export default connect( ({loading_status, setCurrentLoading}) => ({
 	loading_status,
-	setCurrentSequnce
+	setCurrentLoading
 }))(ButtonLoading);

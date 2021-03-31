@@ -5,6 +5,7 @@ class RootStore {
 	feature = '';
 	view = '';
 	loading_status = {};
+	current_loading = 0;
 	current_sequence = '';
 	is_full_loading_up = true;
 
@@ -15,12 +16,14 @@ class RootStore {
 			view: observable,
 			loading_status: observable,
 			current_sequence: observable,
+			current_loading: observable,
 			is_full_loading_up: observable,
 			setfeature: action,
 			setColor: action,
 			resetFeatures: action,
 			setIsLoading: action,
 			setCurrentSequnce: action,
+			setCurrentLoading: action,
 			setIsFullLoadingUp: action,
 		});
 	}
@@ -44,6 +47,10 @@ class RootStore {
 
 	setCurrentSequnce = (sequence) => {
 		this.current_sequence = sequence;
+	}
+	
+	setCurrentLoading = (sequence) => {
+		this.current_loading = sequence;
 	}
 	
 	setIsFullLoadingUp = (is_up) => {

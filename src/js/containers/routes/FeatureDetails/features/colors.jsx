@@ -22,7 +22,7 @@ export const COLORS = [
 	}
 ];
 
-const SelectColor = ({selected_color, setColor, setIsFullLoadingUp, loading_status}) => {
+const SelectColor = ({selected_color, setColor, setIsFullLoadingUp, setCurrentLoading, loading_status}) => {
 	let time;
 	const active_ref = React.useRef(null);
 	const square_ref = React.useRef(null);
@@ -53,10 +53,10 @@ const SelectColor = ({selected_color, setColor, setIsFullLoadingUp, loading_stat
 		setSquareLeft(active_left);
 	};
 
-	const is_loading = status => status < 100 ;
-
 	React.useLayoutEffect(()=>{
-		setIsLoadingColors(is_loading(loading_status.black_to_blue) || is_loading(loading_status.black_to_white) || is_loading(loading_status.blue_to_white));
+		const sum = (loading_status.black_to_blue || 0) + (loading_status.black_to_white || 0) + (loading_status.blue_to_white || 0);
+		setIsLoadingColors(sum < 300);
+		setCurrentLoading(sum / 3);
 	}, [loading_status.black_to_blue, loading_status.black_to_white, loading_status.blue_to_white]);
 
 	React.useLayoutEffect(()=>{
@@ -113,12 +113,14 @@ SelectColor.propTypes = {
   selected_color: PropTypes.oneOf(COLORS),
   setColor: PropTypes.func,
   setIsFullLoadingUp: PropTypes.func,
+  setCurrentLoading: PropTypes.func,
   loading_status: PropTypes.object,
 };
 
-export default connect( ({color, setColor, setIsFullLoadingUp, loading_status}) => ({
+export default connect( ({color, setColor, setIsFullLoadingUp, setCurrentLoading, loading_status}) => ({
 	selected_color: color,
 	setColor,
 	setIsFullLoadingUp,
+	setCurrentLoading,
 	loading_status,
 }))(SelectColor);

@@ -51,7 +51,7 @@ const config = {
 	output: {
 		filename: 'main_[hash].js',
 		path: path.resolve(__dirname, '../build'),
-		publicPath: process.env.PUBLIC_PATH
+		publicPath: process.env.NODE_ENV === 'production' ?  process.env.PUBLIC_PATH : '/'
 	},
 	target: 'web',
 	module: {
