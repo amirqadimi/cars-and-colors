@@ -10,30 +10,38 @@ const links = [
   {
     title: 'Youtube',
     url: '',
-    icon: youtube_icon
+    icon: youtube_icon,
   },
   {
     title: 'Twitter',
     url: '',
-    icon: twitter_icon
+    icon: twitter_icon,
   },
   {
     title: 'Instagram',
     url: '',
-    icon: instagram_icon
+    icon: instagram_icon,
   },
 ];
 
 const Socials = ({className}) => (
   <div className={className}>
     {links.map( item => (
-      <a className={styles.link} key={item.title} href={item.url} target="_blank" rel="noreferrer" title={item.title}><Icon svg={item.icon}/></a>
+      <a 
+        className={styles.link} 
+        key={item.title} 
+        href={item.url} 
+        target='_blank' rel='noreferrer' 
+        title={item.title}
+      >
+        <Icon svg={item.icon}/>
+      </a>
     ))}
   </div>
 );
 
 Socials.propTypes = {
-	className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Socials;

@@ -6,17 +6,17 @@ import SelectFeature from './select-feature';
 
 const Features = () => {
 
-	const { modelId } = useParams();
+  const { modelId } = useParams();
 
-	if (!Object.values(MODELS).includes(modelId)) {
-		return <Page404 />;
-	}
+  if (!Object.values(MODELS).includes(modelId)) {
+    return <Page404 />;
+  }
 
-	return (
-		<div className='page'>
-				<SelectFeature />
-		</div>
-	);
+  return (
+    <div className='page'>
+      <SelectFeature />
+    </div>
+  );
 };
 
 export default Features;

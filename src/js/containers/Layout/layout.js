@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-	HashRouter as Router,
-} from "react-router-dom";
+  HashRouter as Router,
+} from 'react-router-dom';
 import Background from './background';
 import Footer from './footer';
 import Header from './header';
@@ -11,14 +11,14 @@ import ScreenWarning from './screen-warning';
 
 const Layout = () => {
   return (
-		<Router>
-			<Background />
-			<Loading/>
-			<Header/>
-			<Routes />
-			<Footer />
-			<ScreenWarning />
-		</Router>
+    <Router>
+      <Background />
+      <Loading/>
+      <Header/>
+      <Routes />
+      <Footer />
+      <ScreenWarning />
+    </Router>
   );
 };
 

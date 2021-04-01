@@ -7,16 +7,18 @@ import Colors from './features/colors';
 
 const FeatureDetails = () => {
 
-	const { modelId, featureId } = useParams();
+  const { modelId, featureId } = useParams();
 
-	if (!Object.values(MODELS).includes(modelId) || !Object.values(FEATURES).includes(featureId)) {
-		return <Page404 />;
-	}
+  if (!Object.values(MODELS).includes(modelId) || !Object.values(FEATURES).includes(featureId)) {
+    return <Page404 />;
+  }
 
-	switch (featureId) {
-		case FEATURES.colors:
-			return <Colors />;
-	}
+  switch (featureId) {
+    case FEATURES.colors:
+      return <Colors />;
+    default:
+      return null;
+  }
 };
 
 export default FeatureDetails;

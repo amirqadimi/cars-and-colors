@@ -9,20 +9,20 @@ import arrow_icon from 'svg/arrow.svg';
 import styles from './styles.scss';
 
 const ProductNav = () => {
-	const { path } = useRouteMatch();
-	const url = `${path}/${MODELS.bugatti}`;
+  const { path } = useRouteMatch();
+  const url = `${path}/${MODELS.bugatti}`;
 
   return (
     <div className={styles.nav}>
-        <button className={styles.change}><Icon className='flip-v' svg={arrow_icon} /></button>
-        <ButtonLoading
-					sequence={SEQUENCE.to_features.name}
-					url={url}
-					component={Button}
-				>
+      <button className={styles.change}><Icon className='flip-v' svg={arrow_icon} /></button>
+      <ButtonLoading
+        sequence={SEQUENCE.to_features.name}
+        url={url}
+        component={Button}
+      >
 					Select
-				</ButtonLoading>
-        <button className={styles.change}><Icon svg={arrow_icon} /></button>
+      </ButtonLoading>
+      <button className={styles.change}><Icon svg={arrow_icon} /></button>
     </div>
   );
 };

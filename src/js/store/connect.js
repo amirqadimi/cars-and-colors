@@ -5,28 +5,28 @@ import { observer } from 'mobx-react-lite';
 const StoreContext = React.createContext();
 
 export const StoreProvider = ({ store, children }) => {
-    return (
-        <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
-    );
+  return (
+    <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
+  );
 };
 
 StoreProvider.propTypes = {
-	children: PropTypes.node,
-	store: PropTypes.object
+  children: PropTypes.node,
+  store: PropTypes.object,
 };
 
 const mapToComponentProps = (mapToProps, baseComponent) => {
-	const Component = component_props => {
-		const state = React.useContext(StoreContext);
-		
-		return baseComponent({...component_props, ...mapToProps(state, component_props)});
-	};
+  const Component = component_props => {
+    const state = React.useContext(StoreContext);
 
-	Component.displayName = baseComponent.name;
-	Component.propTypes = baseComponent.propTypes;
-	Component.defaultProps = baseComponent.defaultProps;
+    return baseComponent({...component_props, ...mapToProps(state, component_props)});
+  };
 
-	return observer(Component);
+  Component.displayName = baseComponent.name;
+  Component.propTypes = baseComponent.propTypes;
+  Component.defaultProps = baseComponent.defaultProps;
+
+  return observer(Component);
 };
 
 export const connect = mapToProps => Component => mapToComponentProps(mapToProps, Component);

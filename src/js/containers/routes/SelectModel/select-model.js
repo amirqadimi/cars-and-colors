@@ -6,26 +6,26 @@ import ProductNav from './ProductNav';
 import styles from './styles.scss';
 
 export const MODELS = {
-	bugatti: 'bugatti'
+  bugatti: 'bugatti',
 };
 
 const Models = () => (
-	<div className='page'>
-			<div className='container'>
-					<div className='row row--center-v'>
-							<div className='col col-3'></div>
-							<div className='col col-6'>
-									<div className={styles.middle}>
-										<h1 className={styles.heading}><Icon className={styles.title} svg={chiron_logo} title="Chiron Sport"/></h1>
-										<ProductNav />
-									</div>
-							</div>
-							<div className='col col-3 flex-end'>
-									<ProductInfo />
-							</div>
-					</div>
-			</div>
-	</div>
+  <div className='page'>
+    <div className='container'>
+      <div className='row row--center-v'>
+        <div className='col col-3'></div>
+        <div className='col col-6'>
+          <div className={styles.middle}>
+            <h1 className={styles.heading}><Icon className={styles.title} svg={chiron_logo} title='Chiron Sport'/></h1>
+            <ProductNav />
+          </div>
+        </div>
+        <div className='col col-3 flex-end'>
+          <ProductInfo />
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
 export default Models;

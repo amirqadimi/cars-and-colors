@@ -6,9 +6,9 @@ import RootStore from 'js/store/stores/rootStore';
 const store = new RootStore();
 
 const App = () => (
-    <StoreProvider store={store}>
-        <Layout />
-    </StoreProvider>
+  <StoreProvider store={store}>
+    <Layout />
+  </StoreProvider>
 );
 
 

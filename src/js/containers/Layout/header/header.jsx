@@ -11,9 +11,9 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-			<Navigation />
-			<Link to={routes.home.path} className={styles.logo}><img  src={bugatti_logo} alt='Bugatti logo' /></Link>
-			<div className={styles.dealer}>Find a dealer <Icon className={styles.location} svg={location_icon}/></div>
+      <Navigation />
+      <Link to={routes.home.path} className={styles.logo}><img  src={bugatti_logo} alt='Bugatti logo' /></Link>
+      <div className={styles.dealer}>Find a dealer <Icon className={styles.location} svg={location_icon}/></div>
     </div>
   );
 };

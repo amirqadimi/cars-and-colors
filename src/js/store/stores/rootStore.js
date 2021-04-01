@@ -1,5 +1,6 @@
-import { makeObservable, observable, action } from "mobx";
+import { makeObservable, observable, action } from 'mobx';
 
+/* eslint-disable indent */
 class RootStore {
 	color = '';
 	feature = '';
@@ -10,51 +11,51 @@ class RootStore {
 	is_full_loading_up = true;
 
 	constructor() {
-		makeObservable(this, {
-			color: observable,
-			feature: observable,
-			view: observable,
-			loading_status: observable,
-			current_sequence: observable,
-			current_loading: observable,
-			is_full_loading_up: observable,
-			setfeature: action,
-			setColor: action,
-			resetFeatures: action,
-			setIsLoading: action,
-			setCurrentSequnce: action,
-			setCurrentLoading: action,
-			setIsFullLoadingUp: action,
-		});
+   makeObservable(this, {
+      color: observable,
+      feature: observable,
+      view: observable,
+      loading_status: observable,
+      current_sequence: observable,
+      current_loading: observable,
+      is_full_loading_up: observable,
+      setfeature: action,
+      setColor: action,
+      resetFeatures: action,
+      setIsLoading: action,
+      setCurrentSequnce: action,
+      setCurrentLoading: action,
+      setIsFullLoadingUp: action,
+    });
 	}
-
-	setfeature = (selected_feature) => { 
-		this.feature = selected_feature;
+     
+	setfeature = (selected_feature) => {
+    this.feature = selected_feature;
 	}
 
 	setColor = (selected_color) => {
-		this.color = selected_color;
+    this.color = selected_color;
 	}
 
 	resetFeatures = () => {
-		this.view = null;
-		this.color = null;
+    this.view = null;
+    this.color = null;
 	}
 
 	setIsLoading = (sequence, percentage) => {
-		this.loading_status[sequence] = percentage;
+    this.loading_status[sequence] = percentage;
 	}
 
 	setCurrentSequnce = (sequence) => {
-		this.current_sequence = sequence;
+    this.current_sequence = sequence;
 	}
-	
+
 	setCurrentLoading = (sequence) => {
-		this.current_loading = sequence;
+    this.current_loading = sequence;
 	}
-	
+
 	setIsFullLoadingUp = (is_up) => {
-		this.is_full_loading_up = is_up;
+    this.is_full_loading_up = is_up;
 	}
 }
 

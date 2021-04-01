@@ -9,7 +9,7 @@ const Icon = ({ svg, className, ...rest }) => (
 
 Icon.propTypes = {
   svg: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Icon;
