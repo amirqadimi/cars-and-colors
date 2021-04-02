@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 import styles from './styles.scss';
 
-const ButtonLink = ({  className, color, children, beforeDirect, to, ...rest }) => {
-  let history = useHistory();
+const ButtonLink = ({className, color, children, beforeDirect, to, ...rest }) => {
+  const history = useHistory();
   const hasBeforeDirect = typeof beforeDirect === 'function';
   const Component = hasBeforeDirect ? 'div' : <Link/>;
 

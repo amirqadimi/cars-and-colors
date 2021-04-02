@@ -5,8 +5,8 @@ const getCanvasCoverSize = (contentWidth, contentHeight, containerWidth, contain
   const containerRatio = containerWidth / containerHeight;
   let resultHeight;
   let resultWidth;
-  offsetLeft = typeof offsetLeft === 'undefined' ? 0.5 : offsetLeft;
-  offsetTop = typeof offsetTop === 'undefined' ? 0.5 : offsetTop;
+  const offset_left_value = typeof offsetLeft === 'undefined' ? 0.5 : offsetLeft;
+  const offset_top_value = typeof offsetTop === 'undefined' ? 0.5 : offsetTop;
 
   if (contentRatio > containerRatio) {
     resultHeight = containerHeight;
@@ -18,8 +18,8 @@ const getCanvasCoverSize = (contentWidth, contentHeight, containerWidth, contain
   return {
     width: resultWidth,
     height: resultHeight,
-    offsetLeft: Math.ceil((containerWidth - resultWidth) * offsetLeft),
-    offsetTop: Math.ceil((containerHeight - resultHeight) * offsetTop),
+    offsetLeft: Math.ceil((containerWidth - resultWidth) * offset_left_value),
+    offsetTop: Math.ceil((containerHeight - resultHeight) * offset_top_value),
   };
 };
 

@@ -4,11 +4,9 @@ import { observer } from 'mobx-react-lite';
 
 const StoreContext = React.createContext();
 
-export const StoreProvider = ({ store, children }) => {
-  return (
+export const StoreProvider = ({ store, children }) => (
     <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
   );
-};
 
 StoreProvider.propTypes = {
   children: PropTypes.node,

@@ -9,8 +9,7 @@ import Loading from './loading';
 import Routes from './routes';
 import ScreenWarning from './screen-warning';
 
-const Layout = () => {
-  return (
+const Layout = () => (
     <Router>
       <Background />
       <Loading/>
@@ -20,6 +19,5 @@ const Layout = () => {
       <ScreenWarning />
     </Router>
   );
-};
 
 export default Layout;

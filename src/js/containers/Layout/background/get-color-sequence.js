@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { SEQUENCE } from './constance';
 
 const getColorSequence = (prev_color, color) => {
-  const prev = prev_color ? prev_color : 'black';
-  let sequence = `${prev}_to_${color ? color : 'black'}`;
+  const prev = prev_color || 'black';
+  let sequence = `${prev}_to_${color || 'black'}`;
   let is_reversed = false;
   let is_the_same = color && prev_color && color === prev_color;
 

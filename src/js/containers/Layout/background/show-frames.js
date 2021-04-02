@@ -25,18 +25,20 @@ const setImage = (canvas, canvas_size, images, sequence, newLocation) => {
   );
 };
 
+let animation_frame;
+
 const showFrames = (canvas, images, sequence, is_reversed, is_the_same) => {
   const { total_frames } = SEQUENCE[sequence];
   const canvas_size = {
-    width: innerWidth,
-    height: innerHeight,
+    width: window.innerWidth,
+    height: window.innerHeight,
   };
   let current_frame = is_reversed ? (total_frames - 1) : 0;
-  let animation_frame;
 
+  /* eslint-disable no-param-reassign */
   canvas.width = canvas_size.width;
   canvas.height = canvas_size.height;
-
+  /* eslint-enable no-param-reassign */
   const loop = () => {
     setImage(canvas, canvas_size, images, sequence, is_the_same ? total_frames - 1 : current_frame);
 

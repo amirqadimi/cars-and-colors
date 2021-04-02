@@ -7,14 +7,15 @@ const LinkComp = ({disabled, to, children, ...props}) => {
 
   if (disabled || to === location.pathname) {
     return <div {...props}>{children}</div>;
-  } else {
+  } 
     return <Link to={to} {...props}>{children}</Link>;
-  }
+  
 };
 
 LinkComp.propTypes = {
   disabled: PropTypes.bool,
   to: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default LinkComp;

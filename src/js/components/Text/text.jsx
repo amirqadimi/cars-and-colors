@@ -8,7 +8,7 @@ const ProductNav = ({ tag, size, weight, color, margin, custom_styles, children}
     fontSize: `var(--font-size-${size})`,
     fontWeight: `var(--font-weight-${weight})`,
     color: `var(--color-${color})`,
-    margin: margin,
+    margin,
     ...custom_styles,
   };
 

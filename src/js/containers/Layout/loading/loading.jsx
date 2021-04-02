@@ -13,7 +13,7 @@ const Loading = ({ current_sequence, current_loading, loading_status, is_full_lo
       setIsFirstLoad(false);
     }
   }, [is_full_loading_up]);
-  const loading = current_loading ? current_loading : loading_status[current_sequence];
+  const loading = current_loading || loading_status[current_sequence];
   return (
     <React.Fragment>
       <div className={cn(styles.fullLoading, {

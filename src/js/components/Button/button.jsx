@@ -12,10 +12,10 @@ export const BUTTON_SIZE = {
   MD: 'md',
 };
 
-const ButtonLink = ({  className, color, size, is_loading, children, ...rest }) => (
+const ButtonLink = ({ className, color, size, is_loading, children, ...rest }) => (
   <div
     {...rest}
-    className={cn(className, styles.button, styles[color], styles[size],  {
+    className={cn(className, styles.button, styles[color], styles[size], {
       [styles.isLoading]: is_loading,
     })}
   >

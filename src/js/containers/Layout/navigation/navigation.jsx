@@ -10,7 +10,7 @@ const Navigation = () => {
   const [is_open, setOpen] = React.useState(false);
   const location = useLocation();
   const path_name = location.pathname;
-  let menu_ref = React.useRef();
+  const menu_ref = React.useRef();
 
   useOutsideClick(menu_ref, () => {
     setOpen(false);

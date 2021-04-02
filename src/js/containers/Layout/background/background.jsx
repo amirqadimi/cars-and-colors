@@ -25,7 +25,7 @@ const Background = ({
   const canvas_ref = React.useRef();
   const prev_color = usePrevious(color);
   const [images, setImages] = React.useState({});
-  let time = {};
+  let time;
 
   const setSize = () => {
     if (images[current_sequence]) {
@@ -73,7 +73,7 @@ const Background = ({
     const is_on_colors = match_feature?.isExact && (match_feature.params.featureId === FEATURES.colors);
     const { sequence, is_reversed, is_the_same } = getColorSequence(prev_color, color);
 
-    if (is_on_colors && images[sequence]) {
+    if (color && is_on_colors && images[sequence]) {
       showFrames(canvas_ref.current, images, sequence, is_reversed, is_the_same);
     }
   }, [color, images[current_sequence]]);
@@ -87,7 +87,7 @@ const Background = ({
   }, [images[current_sequence]]);
 
   return (
-    <div  className={cn(styles.canvas, {
+    <div className={cn(styles.canvas, {
       [styles.normal]: !is_full_loading_up,
     })}>
       <canvas ref={canvas_ref}/>

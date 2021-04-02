@@ -37,14 +37,12 @@ const SelectColor = ({selected_color, setColor, setIsFullLoadingUp, setCurrentLo
     }, 420);
   });
 
-  React.useEffect(() => {
-    return () => {
+  React.useEffect(() => () => {
       if (time) {
         clearTimeout(time);
       }
       setColor(null);
-    };
-  }, []);
+    }, []);
 
   const setSquarePosition = () => {
     const active_rect = active_ref.current.getBoundingClientRect();

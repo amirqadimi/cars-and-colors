@@ -20,7 +20,7 @@ const ButtonLoading = ({
   children,
   ...rest
 }) => {
-  let history = useHistory();
+  const history = useHistory();
   const [is_loading, setIsloading] = React.useState(false);
 
   const runAction = () => {
@@ -51,7 +51,7 @@ const ButtonLoading = ({
     }
   }, [loading_status[sequence]]);
 
-  const Component = component ? component : 'div';
+  const Component = component || 'div';
 
   return (
     <Component

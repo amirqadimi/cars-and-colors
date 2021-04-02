@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles.scss';
 import { connect } from 'js/store/connect';
+import styles from './styles.scss';
 
-const Counter = props => {
-
-  return (
+const Counter = props => (
     <div className={styles.wrap}>
       <div className={styles.num}>{props.count}</div>
       <button onClick={() => props.addCount()}>+</button>
     </div>
   );
-};
 
 Counter.propTypes = {
   count: PropTypes.num,

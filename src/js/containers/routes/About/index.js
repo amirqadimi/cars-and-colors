@@ -1,1 +1,1 @@
-export { default } from './about.js';
+export { default } from './about';

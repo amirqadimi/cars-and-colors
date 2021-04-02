@@ -1,3 +1,5 @@
+const path = require('path');
+
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
@@ -10,6 +12,7 @@ module.exports = {
     es6: true,
     browser: true,
   },
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -19,24 +22,33 @@ module.exports = {
     },
   },
   extends: [
-    'eslint:recommended',
+    'airbnb-base',
     'plugin:react/recommended',
-    'fbjs',
+    'prettier',
   ],
   settings: {
     react: {
-      createClass: 'createReactClass',
-      pragma: 'React',
-      fragment: 'Fragment',
       version: 'detect',
-      flowVersion: '0.53',
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js','.jsx', '.ts']
+      },
+      webpack: { config: path.resolve(__dirname, 'webpack/webpack.common.js') },
+      
     },
   },
   rules: {
-    semi: [ERROR, 'always'],
+    'camelcase': OFF,
+    'semi': [ERROR, 'always'],
     'react/no-unescaped-entities': [ERROR, {'forbid': ['>', '"', '}']}],
     'max-len': [WARN, 120, INDENT_SIZE, {'ignoreUrls': true}],
     'jsx-quotes': [WARN, 'prefer-single'],
+    'no-irregular-whitespace': WARN,
+    'no-multi-spaces': WARN,
+    'import/prefer-default-export': OFF,
+    'block-spacing': ERROR,
+    'quotes': [ERROR, "single", { "allowTemplateLiterals": true }]
   },
 };    
 

@@ -1,6 +1,6 @@
 import { makeObservable, observable, action } from 'mobx';
 
-/* eslint-disable indent */
+/* eslint-disable lines-between-class-members */
 class RootStore {
 	color = '';
 	feature = '';
