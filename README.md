@@ -2,9 +2,9 @@
 
 This is a demo of a car shop website based on a design by Mahdi Gharanoosh. The main idea for building this demo was challenging and improving my ability to maintain and develop a fully animated react SPA from scratch and get to know Canvas API.
 
-[Online demo website](https://amirqadimi.github.io/cars-and-colors)
+[Online demo website](https://amirqadimi.github.io/cars-and-colors){:target="_blank"}
 
-[Original design on dribbble.com](https://dribbble.com/shots/11588859-Car-and-Colors)
+[Original design on dribbble.com](https://dribbble.com/shots/11588859-Car-and-Colors){:target="_blank"}
 
 
 ## How to run on your local machine
