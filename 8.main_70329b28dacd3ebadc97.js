@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{388:function(e,s,a){"use strict";a.r(s),s.default=a.p+"assets/images/sequences/black_to_blue/frame_15_94b2b399d36a568386d309b94f573768.jpg"}}]);
-//# sourceMappingURL=8.main_70329b28dacd3ebadc97.js.map

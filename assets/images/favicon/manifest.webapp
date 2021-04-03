@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "cars-and-colors",
+  "description": "This is a demo for an online car shop",
+  "icons": {
+    "60": "https://amirqadimi.github.io/cars-and-colors/assets/firefox_app_60x60.png",
+    "128": "https://amirqadimi.github.io/cars-and-colors/assets/firefox_app_128x128.png",
+    "512": "https://amirqadimi.github.io/cars-and-colors/assets/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Amir Ghadimi",
+    "url": null
+  }
+}
