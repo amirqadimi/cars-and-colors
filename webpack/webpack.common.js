@@ -1,9 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const dotenv = require('dotenv').config( {
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const dotenv = require('dotenv').config({
   path: path.join(__dirname, '../.env')
-} );
+});
+
+const js = {
+	test: /.jsx?$/,
+	exclude: /node_modules/,
+	use: {
+		loader: 'babel-loader',
+		options: {
+			highlightCode: true,
+		}
+	}
+};
 
 const files = {
 	test: /\.(svg|png|jpe?g|gif|webp)$/i,
@@ -51,11 +63,11 @@ const config = {
 	output: {
 		filename: 'main_[hash].js',
 		path: path.resolve(__dirname, '../build'),
-		publicPath: process.env.NODE_ENV === 'production' ?  process.env.PUBLIC_PATH : '/'
+		publicPath: process.env.NODE_ENV === 'production' ? process.env.PUBLIC_PATH : '/'
 	},
 	target: 'web',
 	module: {
-		rules: [files, fonts, svg_sprites]
+		rules: [js, files, fonts, svg_sprites]
 	},
 	resolve: {
 		alias: {
@@ -70,10 +82,15 @@ const config = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html',
-			base: '/'
+			base: '/',
 		}),
 		new webpack.DefinePlugin({
-      "process.env": dotenv.parsed
+      'process.env': dotenv.parsed
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './assets/images/general/bugatti-logo.svg',
+      outputPath: './assets/images/favicon',
+      cache: true,
     }),
 	]
 };

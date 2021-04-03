@@ -3,22 +3,9 @@ const { merge } = require('webpack-merge');
 const common_config = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const js = {
-	test: /.jsx?$/,
-	exclude: /node_modules/,
-	use: {
-		loader: 'babel-loader',
-		options: {
-			sourceMaps: true,
-			highlightCode: true,
-		}
-	}
-};
-
 const postcss = {
 	loader: 'postcss-loader',
 	options: {
-		sourceMap: true,
 		postcssOptions: {
 			plugins: [ 'autoprefixer'],
 		},
@@ -30,7 +17,7 @@ const css = {
 	include: path.resolve(__dirname, '../src/styles'),
 	use: [
 		MiniCssExtractPlugin.loader,
-		{ loader: 'css-loader', options: { sourceMap: true } },
+		'css-loader',
 		postcss
 	]
 };
@@ -46,13 +33,12 @@ const scssConfig = (isModule = false) => ({
 		MiniCssExtractPlugin.loader,
 		{ 
 			loader: 'css-loader', 
-			options: { 
-				sourceMap: true,
+			options: {
 				modules: isModule ? modulesOptions : false
-			} 
+			}
 		},
 		postcss,
-		{ loader: 'sass-loader', options: { sourceMap: true } },
+		'sass-loader'
 	]
 });
 
@@ -64,7 +50,7 @@ const config = {
 	mode: 'production',
 	devtool: 'source-map',
 	module: {
-		rules: [js, css, scss, scssModules]
+		rules: [css, scss, scssModules]
 	},
 	plugins: [
 		new MiniCssExtractPlugin({

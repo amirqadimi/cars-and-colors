@@ -27,7 +27,10 @@ const loadImages = (setImages, setIsLoading) => {
 
       const image = new Promise( ( resolve ) => {
         const img = new Image();
-        import(`images/sequences/${is_to_models ? `to_features` : name}/${file_name}`)
+        import(
+            /* webpackMode: "eager" */
+            `images/sequences/${is_to_models ? `to_features` : name}/${file_name}`
+          )
           .then(src => {
             img.src = src.default;
           });

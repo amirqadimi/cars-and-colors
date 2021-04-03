@@ -48,7 +48,7 @@ module.exports = {
     'no-multi-spaces': WARN,
     'import/prefer-default-export': OFF,
     'block-spacing': ERROR,
-    'quotes': [ERROR, "single", { "allowTemplateLiterals": true }]
+    'quotes': [ERROR, 'single', { 'allowTemplateLiterals': true }]
   },
 };    
 
